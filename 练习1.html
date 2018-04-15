@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div:nth-child(1){
+            height: 100px;
+            width: 100px;
+            background-color: aqua;
+        }
+        div:nth-child(2){
+            height: 100px;
+            width: 100px;
+            background-color: #266653;
+            position: absolute;
+        }
+        div:nth-child(1):hover+ div:nth-child(2){
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="aa"><a>dfdfdfff</a></div>
+    <div class="aa"></div>
+</body>
+<script>
+    let a = (function(){Console.log("哈哈")();return 10;})
+    console.log(a)
+    let {name,age,list:[a1,a2,a3]} ={name :"bbb",age :"60",list:["sdfsdfs","gsgs","gfsgs"]};
+    console.log(name,age,a1,a2,a3);
+    let str = "fsdfsfsdfsdf";
+    console.log(str.includes("f",3,5));//判断字符串在指定位置或者区间里面有没有给定字符
+    console.log(str.startsWith("s",3));//判断字符串开始的位置是否以规定字符开始
+    console.log(str.endsWith("f",3));//判断字符串结束的位置是否以规定字符结束
+    let aq = "sda"
+    aq = aq.padEnd(15,"h");
+    console.log(aq);
+    var bbb ="fdsfdsfds";
+    let class1 = "box";
+    document.body.innerHTML+= `<h1 class="${class1}">${bbb}</h1>`;
+    (function(){
+        console.log(typeof arguments);
+    }());
+    let str1 = ["1","2","3","4","5","6","7","8"];
+    console.log(str1.copyWithin(4,2,4));
+    console.dir(Array);
+    console.log(Array.prototype);
+    console.dir(Array.prototype);
+    console.log(Array.isArray(str1));
+    console.log(str1 instanceof Array);
+    let fn =(x=2) =>{x+1};
+</script>
+</html>

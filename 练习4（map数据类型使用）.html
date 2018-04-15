@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //构造函数创建map实例
+    //参数是一个数组，数组的每一项也是一个数组，[key=>value]；
+    //对象的属性名必须是字符串，如果不是，调用tostring方法
+    //map实例的key可以使任意数据类型
+    let map1 = new Map([[1,1],[2,8],["dsad","dasd"],[true,true]]);
+    console.log(map1);
+    console.log(map1.get(2));//fet方法根据key来获取value,返回value
+    console.log(map1.set("fsdf","fasffa"));//set方法向后面增加一个数组，key和value
+    console.log(map1.set("dsad","wwww"));//如果原先key存在，则是修改掉原来的
+    console.log(map1.has(1));//判断key有没有value，返回布尔
+    console.log(map1.delete(2));//参数是key，删除传入的key和对应value，返回布尔
+    console.log(map1);
+    for(let [key,val] of map1.entries()){//for of遍历map
+        console.log(key,val);
+    }
+    for(let key of map1){
+        console.log(key);
+    }
+    map1.forEach((keys,val,input)=>{//foreach遍历map
+        console.log(keys);
+        console.log(val);
+    })
+    map1.forEach(function(keys,val,input){
+        console.log(keys);
+        console.log(val);
+    })
+    console.log(map1.clear());
+    console.log(map1);
+    let arr = [1,2,3,4,85,4,8,4,5,6];
+    let map2 =new Map;
+    for(let [key,val] of arr.entries()){
+        map2.set(key,val);
+    }
+    console.log(map2);
+</script>
+</html>

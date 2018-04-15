@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let str =["1","2","3","4","5","6","7","8"]
+    str.fill("asasas");
+    console.log(str);
+    let a=10;
+    let arr2=[1,2,3,4,56];
+    let arr3=[8,97,45,6,1];
+    let arr4=arr2.concat(arr3);//合并两个数组
+    console.log(arr4);
+    function f1(){//如果是...arr的形式，那么...arr直接为一个数组
+        var b=23;
+        console.log(arguments);
+        arr1=Array.from(arguments);
+        console.log(arguments);
+        console.log(a);
+    }
+    f1(1,2,3,4,5)
+    function f2(){
+        console.log(b);
+    }
+    console.log(Object.is(NaN,NaN));
+    console.log(Object.is(-0,0));
+    console.log(NaN===NaN);
+    console.log(0===-0);
+    let obj1 = {name:"lalala", age:20};
+    let obj2 = {hobby:"play"};
+    Object.assign(obj1,obj2);//es6合并两个对象，保存到第一个对象上面
+    console.log(obj1);
+    obj3={...obj1,...obj2};
+    console.log(obj3);//es7合并两个对象，返回合并后的对象
+    console.log(Object.keys(obj3));//返回数组，对象中所有可枚举的属性
+    console.log(Object.values(obj3));//返回数组，对象中所有可枚举的属性的值
+    console.log(Object.entries(obj3));//返回数组，对象中所有可枚举的【属性 值】
+    /*let obj4 ={
+        _name=name,
+        get name(){
+            console.log("获得了name属性");
+        },
+        set name(val){
+            console.log("设置了name属性");
+            return this._val;
+        }
+    }
+    obj4._name="0arrraaaaa";
+    console.log(obj4._name);*/
+    
+</script>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //proxy:对操作目标对象的改写，拦截
+    let obj1 = {
+        name:"dsd",
+        age:20
+    }
+    console.dir(obj1);
+    let proxy1 =new Proxy(obj1,{
+        get(target,key,ipout){//默认接受3个参数   目标对象  属性名  实例
+            console.log("1dsd");
+            return target[key];
+        }
+    })
+    console.log(proxy1.name);
+    let A = class AA{
+        //AA只能在类里面使用
+        
+        constructor(name,age)
+        {
+            this.name = name,
+            this.age = age
+        }
+        getit(){//类就相当于原型，方法会被继承；
+            console.log(this.name)
+        }
+        static oooo(){//在类里面的方法加上static之后，这个方法就变成了类的方法，而不会被继承，比如Array.of()
+        return "adda";
+        }
+    }
+    let aa = new A("dfdf",20);
+    aa.getit()
+    let bb = new class{
+        constructor(name){
+            this.name=name;
+        }
+    }("lalala");//通过在后面加（）使class立即执行
+    console.log(bb.name);
+    //class没有变量提升
+    class ss extends A{
+        constructor(name,age){
+            super(name,age);//super就是父类的constructor,加的属性必须放在super之后
+        }
+        getit(){
+            super.getit();//super指向父类原型
+        }
+        static oooo(){//通过class写在原型上的方法不可枚举
+            super.oooo();//可以被子类继承，super指向父类本身
+        }
+    } 
+    let zs = new ss("dsdds",20);
+    zs.getit();
+</script>
+</html>

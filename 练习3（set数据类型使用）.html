@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //新的数据类型：set，类似于数组，只有value，没有key，
+    //通过构造函数创建一个set实例，
+    //参数是一个数组（有iterable接口即可）：数组，字符串，arguments，元素集合，社团，map
+    //默认去掉重复值
+    let set1 = new Set("sadafaaaaaa");
+    console.log(set1);
+    console.log(set1.size);//size set实例的大小个数
+    set1.add("trt");//add增加，如果之前没有就加上，一次只能接受一个参数
+    console.log(set1);
+    console.log(set1.delete(4));//delete删除，和删除一个值，删除成功返回true，失败false
+    console.log(set1);
+    console.log(set1.has("s"));//has判断有没有这个值，返回布尔
+    set1.forEach((...arr)=>{//遍历foreach
+        console.log(arr);
+    })
+    console.log(set1);
+    for(let val of set1.values()){
+        console.log(val);
+    }
+    for(let val of set1.keys()){//keys和values都是values，set里面没有keys           常用
+        console.log(val);
+    }
+    set1.clear();//全部删除
+    //应用：
+    //数组去重
+    let arra1=[1,23,4,5,74,1,12,1,254,21,21,4,21,21,51,5,4,4];
+    arra1=[...new Set(arra1)];
+    arra2=Array.from(new Set(arra1));
+    console.log(arra1);
+    console.log(arra2);
+    //求两个数组的并集：
+    let arr1=new Array(1,23,4,8,4,8,48,7);
+    let arr2=new Array(5,4,84,6484,61,4,1);
+    function add(arr1,arr2){
+        return Array.from(new Set([...arr1,...arr2])); //利用set类型没有重复的方法去重
+    }
+    let arr3 = add(arr1,arr2);
+    console.log(arr3);
+    //求两个数组的交集：
+    function same(arr1,arr2){
+        return arr1.filter(function(item){//这个function等价于item=>arr2.includes(item)
+            if(arr2.includes(item)){
+                return item;
+            }
+    });//过滤arr1在arr1中的元素
+    }
+    arr4=same(arr1,arr2);
+    console.log(arr4);
+</script>
+</html>
